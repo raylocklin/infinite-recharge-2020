@@ -3,6 +3,6 @@
 #include <frc/XboxController.h>
 namespace control
 {
-extern frc::XboxController leController; //Of epic dankness
+    extern frc::XboxController leController; //Of epic dankness
 }
 #endif

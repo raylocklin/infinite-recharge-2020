@@ -2,9 +2,9 @@
 #define YEET_MOTOR_DEFINITION_H
 #include <frc/PWMVictorSPX.h>
 
-extern frc::PWMVictorSPX driveMotorLeft;
-extern frc::PWMVictorSPX driveMotorRight;
-
-
-
+namespace hardware
+{
+    extern frc::PWMVictorSPX driveMotorLeft;
+    extern frc::PWMVictorSPX driveMotorRight;
+}
 #endif

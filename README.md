@@ -23,9 +23,11 @@ Option 1(recommended)
 More freedom and control.
 1. Left bumper moves Storage up
 2. Right bumper moves Storage down
+
 Option 2:
 *frees up the driver's hand, less intuitive, less pressing*
 1. Back bumper(one of them) toggle up or down
+
 Option 3(NOT RECOMMENDED):
 (Intuitive but cumbersome, forces the driving hand
 off or to switch to the other joystick.)

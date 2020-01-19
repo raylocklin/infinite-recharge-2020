@@ -19,6 +19,7 @@ with the left joystick.
 3. X to stop intake
 
 **Storage:**
+
 Option 1(recommended)
 More freedom and control.
 1. Left bumper moves Storage up

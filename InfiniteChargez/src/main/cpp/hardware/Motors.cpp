@@ -1,6 +1,4 @@
 #include "Robot.h"
-#include "MotorDef.h"
-#include "frc/PWMVictorSPX.h"
 
 Robot::driveMotor_t Robot::driveMotorLeft{Robot::portDriveLeft};
 Robot::driveMotor_t Robot::driveMotorRight{Robot::portDriveRight};

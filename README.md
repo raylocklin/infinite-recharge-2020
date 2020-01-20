@@ -11,13 +11,15 @@ The controller used is the glorious Xbox Controller.
 
 **Motion:**
 "Arcade" style control 
-with the left joystick.
+with the both joysticks.
 
 **Intake:**
 1. A to have the intake motors spin in
 2. B to out
 3. X to stop intake
 
+_Alternative_: Consider using stick buttons
+to manage the intake rapidly without interruption
 **Storage:**
 
 Option 1(recommended)

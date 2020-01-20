@@ -12,7 +12,18 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 
-class Robot : public frc::TimedRobot {
+class Robot : public frc::TimedRobot 
+{
+  //Ports for Motors and Controllers
+ private:
+    static constexpr int portDriveLeft{0};
+    static constexpr int portDriveRight{1};
+    static constexpr int portIntakeLeft{2};
+    static constexpr int portIntakeRight{3};
+    static constexpr int portStorage{4};
+    static constexpr int portHook{5};
+
+
  public:
   void RobotInit() override;
   void RobotPeriodic() override;
@@ -23,6 +34,10 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
  private:
+  //Declare Motors
+
+
+  //Declare Controllers
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Yeeter McYeeterson";
   const std::string kAutoNameCustom = "Yeeter McYeeterson";

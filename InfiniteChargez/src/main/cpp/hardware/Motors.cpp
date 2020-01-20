@@ -6,13 +6,7 @@ namespace hardware
     /*The integer passed into the motors' constructor
     corresponds to the port to which they were plugged into
     the RoboRio*/
-    constexpr int portDriveLeft{0};
-    constexpr int portDriveRight{1};
-    constexpr int portIntakeLeft{2};
-    constexpr int portIntakeRight{3};
-    constexpr int portStorage{4};
-    constexpr int portHook{5};
-
+    
     driveMotor_t driveMotorLeft{portDriveLeft};
     driveMotor_t driveMotorRight{portDriveRight};
 

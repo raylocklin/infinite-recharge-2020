@@ -1,18 +1,20 @@
+/*
 #ifndef YEET_CONTROL_CHECKS_AND_EXECUTIONS
 #define YEET_CONTROL_CHECKS_AND_EXECUTIONS
-namespace control
+
+#include "Robot.h"
+class Robot::leInputHandler
 {
+    public:
     void checkAndExec();
-
-    inline void joystickPosition();
-    inline void buttonA();
-    inline void buttonB();
-    inline void buttonX();
-    inline void buttonY();
-    inline void bumper();   
     
-
-
-
-}
+    private:
+    void joystickPosition();
+    //inline void buttonA();
+    //inline void buttonB();
+    //inline void buttonX();
+    //inline void buttonY();
+    //inline void bumper();   
+};
 #endif
+*/

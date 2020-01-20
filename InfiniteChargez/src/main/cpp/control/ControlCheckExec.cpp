@@ -1,28 +1,18 @@
-#include "ControllerDef.h"
-#include "ControlCheckExec.h"
-#include "DriverDef.h"
+#include "Robot.h"
 
-#include <frc/GenericHID.h>
-#include <frc/PWMVictorSPX.h>
-#include <frc/XboxController.h>
-#include <frc/drive/DifferentialDrive.h>
-
-namespace control
-{
-    void checkAndExec()
+    void Robot::checkAndExec()
     {
-        inline void joystickPosition();
-        inline void buttonA();
-        inline void buttonB();
-        inline void buttonX();
-        inline void buttonY();
-        inline void bumper();  
+        joystickPosition();
+        //buttonA();
+        //buttonB();
+        //buttonX();
+        //buttonY();
+        //bumper();  
     }
     
-    inline void joystickPosition()
+    void Robot::joystickPosition()
     {
-        driverMain.ArcadeDrive(
+            driverMain.ArcadeDrive(
             leController.GetX(frc::GenericHID::JoystickHand::kLeftHand),
             leController.GetY(frc::GenericHID::JoystickHand::kRightHand));
     }
-}

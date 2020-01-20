@@ -8,6 +8,8 @@
 #define YEET_LE_MOST_AMAZING_ROBOT_IN_THE_WORLD
  #pragma once
 
+#include "ControlCheckExec.h"
+
 #include <string>
 
 #include <frc/PWMVictorSPX.h>
@@ -27,18 +29,18 @@ class Robot : public frc::TimedRobot
   using controller_t = frc::XboxController;
   using driver_t = frc::DifferentialDrive;
   private:
-  static constexpr double intakeSpeed{1};
-  static constexpr double speedMultiplier{1};
-  static constexpr double rotationMultiplier{1};
+   static constexpr double intakeSpeed{1};
+   static constexpr double speedMultiplier{1};
+   static constexpr double rotationMultiplier{1};
   //Ports for Motors and Controllers
  private:
-    static constexpr int controllerPort{0};
-    static constexpr int portDriveLeft{0};
-    static constexpr int portDriveRight{1};
-    static constexpr int portIntakeLeft{2};
-    static constexpr int portIntakeRight{3};
-    static constexpr int portStorage{4};
-    static constexpr int portHook{5};
+     static constexpr int controllerPort{0};
+     static constexpr int portDriveLeft{0};
+     static constexpr int portDriveRight{1};
+     static constexpr int portIntakeLeft{2};
+     static constexpr int portIntakeRight{3};
+     static constexpr int portStorage{4};
+     static constexpr int portHook{5};
 
 
  public:
@@ -49,30 +51,33 @@ class Robot : public frc::TimedRobot
   void TeleopInit() override;
   void TeleopPeriodic() override;
   void TestPeriodic() override;
-
  private:
-    static controller_t leController; //Of epic dankness
+     controller_t leController{controllerPort}; //Of epic dankness
   //Declare Motors
-    static driveMotor_t driveMotorLeft;
-    static driveMotor_t driveMotorRight;
+     driveMotor_t driveMotorLeft{portDriveLeft};
+     driveMotor_t driveMotorRight{portDriveRight};
 
-    static intakeMotor_t intakeMotorLeft;
-    static intakeMotor_t intakeMotorRight;
+     intakeMotor_t intakeMotorLeft{portIntakeLeft};
+     intakeMotor_t intakeMotorRight{portIntakeRight};
 
-    static storageMotor_t storageMotor;
+     storageMotor_t storageMotor{portStorage};
 
-    static hookMotor_t hookMotor;
+     hookMotor_t hookMotor{portHook};
   //Declare Motor Groups
-    static driver_t driverMain;
-  class Intake
-      {
-      private:
-          static constexpr double baseSpeed{Robot::intakeSpeed};
-      public:
-          static void in();
-          static void out();
-          static void stop();
-      };
+    driver_t driverMain{driveMotorLeft, driveMotorRight};
+    //Input checking funcitons
+    void checkAndExec();
+    void joystickPosition();
+    void buttonA();
+    void buttonB();
+    void buttonX();
+    void buttonY();
+    void bumper();  
+    //Movement Functions
+    void intakeIn();
+    void intakeOut();
+    void intakeStop();
+  //Control handling nested class
   //Declare Controllers
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Yeeter McYeeterson";

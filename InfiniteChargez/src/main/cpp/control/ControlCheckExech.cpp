@@ -9,7 +9,7 @@
 
 namespace control
 {
-    void checkAndExec()
+    inline void checkAndExec()
     {
         inline void joystickPosition();
         inline void buttonA();
@@ -19,7 +19,7 @@ namespace control
         inline void bumper();  
     }
     
-    void joystickPosition()
+    inline void joystickPosition()
     {
         driverMain.ArcadeDrive(
             leController.GetX(frc::GenericHID::JoystickHand::kLeftHand),

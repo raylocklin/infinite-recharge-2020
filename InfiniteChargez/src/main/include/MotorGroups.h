@@ -6,9 +6,7 @@ namespace hardware
     class Intake
     {
     private:
-
-        static constexpr double baseSpeed{1};
-
+        static constexpr double baseSpeed = 1;
     public:
         static void in();
         static void out();

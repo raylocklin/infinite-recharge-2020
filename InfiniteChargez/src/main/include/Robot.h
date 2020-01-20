@@ -14,6 +14,7 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/XboxController.h>
+#include <frc/drive/DifferentialDrive.h>
 
 class Robot : public frc::TimedRobot 
 {
@@ -24,7 +25,11 @@ class Robot : public frc::TimedRobot
   using hookMotor_t = frc::PWMVictorSPX;
 
   using controller_t = frc::XboxController;
-
+  using driver_t = frc::DifferentialDrive;
+  private:
+  static constexpr double intakeSpeed{1};
+  static constexpr double speedMultiplier{1};
+  static constexpr double rotationMultiplier{1};
   //Ports for Motors and Controllers
  private:
     static constexpr int controllerPort{0};
@@ -57,7 +62,17 @@ class Robot : public frc::TimedRobot
     static storageMotor_t storageMotor;
 
     static hookMotor_t hookMotor;
-
+  //Declare Motor Groups
+    static driver_t driverMain;
+  class Intake
+      {
+      private:
+          static constexpr double baseSpeed{Robot::intakeSpeed};
+      public:
+          static void in();
+          static void out();
+          static void stop();
+      };
   //Declare Controllers
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Yeeter McYeeterson";

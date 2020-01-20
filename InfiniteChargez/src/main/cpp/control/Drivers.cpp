@@ -1,6 +1,3 @@
-#include "DriverDef.h"
-#include "MotorDef.h"
-namespace control
-{
-    extern frc::DifferentialDrive driverMain{hardware::driveMotorLeft, hardware::driveMotorRight};
-}
+#include "Robot.h"
+
+Robot::driver_t Robot::driverMain{Robot::driveMotorLeft, Robot::driveMotorRight};

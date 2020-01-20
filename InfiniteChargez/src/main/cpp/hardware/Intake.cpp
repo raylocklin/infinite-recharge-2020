@@ -1,25 +1,20 @@
-#include "MotorGroups.h"
-#include "MotorDef.h"
+#include "Robot.h"
 
-namespace hardware
-{
-    void Intake::in()
+    void Robot::Intake::in()
     {
         intakeMotorLeft.SetSpeed(baseSpeed);
         intakeMotorRight.SetSpeed(-baseSpeed);
     }
 
-    void Intake::out()
+    void Robot::Intake::out()
     {
         intakeMotorLeft.SetSpeed(-baseSpeed);
         intakeMotorRight.SetSpeed(baseSpeed);
 
     }
 
-    void Intake::stop()
+    void Robot::Intake::stop()
     {
         intakeMotorLeft.SetSpeed(0);
         intakeMotorRight.SetSpeed(0);
     }
-
-}

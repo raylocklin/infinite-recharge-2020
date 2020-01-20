@@ -4,16 +4,24 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
-#pragma once
+#ifndef YEET_LE_MOST_AMAZING_ROBOT_IN_THE_WORLD
+#define YEET_LE_MOST_AMAZING_ROBOT_IN_THE_WORLD
+ #pragma once
 
 #include <string>
 
+#include <frc/PWMVictorSPX.h>
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 
 class Robot : public frc::TimedRobot 
 {
+  //Configuration constants will go here until a configuration system can be set up
+  using driveMotor_t = frc::PWMVictorSPX;
+  using intakeMotor_t = frc::PWMVictorSPX;
+  using storageMotor_t = frc::PWMVictorSPX;
+  using hookMotor_t = frc::PWMVictorSPX;
+
   //Ports for Motors and Controllers
  private:
     static constexpr int portDriveLeft{0};
@@ -35,7 +43,15 @@ class Robot : public frc::TimedRobot
 
  private:
   //Declare Motors
+    static driveMotor_t driveMotorLeft;
+    static driveMotor_t driveMotorRight;
 
+    static intakeMotor_t intakeMotorLeft;
+    static intakeMotor_t intakeMotorRight;
+
+    static storageMotor_t storageMotor;
+
+    static hookMotor_t hookMotor;
 
   //Declare Controllers
   frc::SendableChooser<std::string> m_chooser;
@@ -43,3 +59,5 @@ class Robot : public frc::TimedRobot
   const std::string kAutoNameCustom = "Yeeter McYeeterson";
   std::string m_autoSelected;
 };
+
+#endif

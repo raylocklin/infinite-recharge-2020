@@ -65,7 +65,8 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
 {
-  control::joystickPosition();
+  control::checkAndExec();
+  
 }
 
 void Robot::TestPeriodic() {}

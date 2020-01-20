@@ -2,6 +2,17 @@
 #define YEET_CONTROL_CHECKS_AND_EXECUTIONS
 namespace control
 {
-    void joystickPosition();
+    inline void checkAndExec();
+
+    inline void joystickPosition();
+    inline void buttonA();
+    inline void buttonB();
+    inline void buttonX();
+    inline void buttonY();
+    inline void bumper();   
+    
+
+
+
 }
 #endif

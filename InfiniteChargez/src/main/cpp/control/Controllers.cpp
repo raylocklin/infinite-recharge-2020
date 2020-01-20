@@ -1,7 +1,3 @@
-#include "ControllerDef.h"
-#include <frc/XboxController.h>
-namespace control
-{
-    const int controllerPort{0};
-    frc::XboxController leController{controllerPort}; //Make this configurable outside
-}
+#include "Robot.h"
+
+Robot::controller_t Robot::leController{Robot::controllerPort}; //Make this configurable outside

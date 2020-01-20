@@ -13,6 +13,7 @@
 #include <frc/PWMVictorSPX.h>
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
+#include <frc/XboxController.h>
 
 class Robot : public frc::TimedRobot 
 {
@@ -22,8 +23,11 @@ class Robot : public frc::TimedRobot
   using storageMotor_t = frc::PWMVictorSPX;
   using hookMotor_t = frc::PWMVictorSPX;
 
+  using controller_t = frc::XboxController;
+
   //Ports for Motors and Controllers
  private:
+    static constexpr int controllerPort{0};
     static constexpr int portDriveLeft{0};
     static constexpr int portDriveRight{1};
     static constexpr int portIntakeLeft{2};
@@ -42,6 +46,7 @@ class Robot : public frc::TimedRobot
   void TestPeriodic() override;
 
  private:
+    static controller_t leController; //Of epic dankness
   //Declare Motors
     static driveMotor_t driveMotorLeft;
     static driveMotor_t driveMotorRight;

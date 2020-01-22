@@ -65,7 +65,7 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
 {
-
+  checkAndExec();
 }
 
 void Robot::TestPeriodic() {}

@@ -35,12 +35,14 @@ class Robot : public frc::TimedRobot
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};
-     static constexpr int portDriveLeft{0};
-     static constexpr int portDriveRight{1};
-     static constexpr int portIntakeLeft{2};
-     static constexpr int portIntakeRight{3};
-     static constexpr int portStorage{4};
-     static constexpr int portHook{5};
+     static constexpr int portDriveFrontLeft{0};
+     static constexpr int portDriveFrontRight{1};
+     static constexpr int portDriveBackLeft{2};
+     static constexpr int portDriveBackRight{3};
+     static constexpr int portIntakeLeft{4};
+     static constexpr int portIntakeRight{5};
+     static constexpr int portStorage{6};
+     static constexpr int portHook{7};
 
 
  public:
@@ -54,8 +56,10 @@ class Robot : public frc::TimedRobot
  private:
      controller_t leController{controllerPort}; //Of epic dankness
   //Declare Motors
-     driveMotor_t driveMotorLeft{portDriveLeft};
-     driveMotor_t driveMotorRight{portDriveRight};
+     driveMotor_t driveMotorFrontLeft{portDriveFrontLeft};
+     driveMotor_t driveMotorFrontRight{portDriveFrontRight};
+     driveMotor_t driveMotorBackLeft{portDriveBackLeft};
+     driveMotor_t driveMotorBackRight{portDriveBackRight};
 
      intakeMotor_t intakeMotorLeft{portIntakeLeft};
      intakeMotor_t intakeMotorRight{portIntakeRight};

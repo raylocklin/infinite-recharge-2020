@@ -40,8 +40,9 @@ class Robot : public frc::TimedRobot
     time on the lower curves
     */
 
+    //Must be odd for the moment or else the robo cannot move backwards.
    static constexpr double speedCurvePower{3};
-   static constexpr double rotationCurvePower{5};
+   static constexpr double rotationCurvePower{3};
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};

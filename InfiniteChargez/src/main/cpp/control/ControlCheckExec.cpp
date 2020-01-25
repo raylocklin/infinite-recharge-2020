@@ -1,4 +1,5 @@
 #include "Robot.h"
+#include <iostream>
 
     void Robot::checkAndExec()
     {
@@ -12,7 +13,8 @@
     
     void Robot::joystickPosition()
     {
+            std::cout << leController.GetX(frc::GenericHID::JoystickHand::kLeftHand) << '\n';
             driverMain.ArcadeDrive(
-            leController.GetX(frc::GenericHID::JoystickHand::kLeftHand),
-            leController.GetY(frc::GenericHID::JoystickHand::kRightHand));
+            leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),
+            leController.GetX(frc::GenericHID::JoystickHand::kLeftHand));
     }

@@ -12,20 +12,22 @@
 
 #include <string>
 
+#include <frc/Joystick.h>
 #include <frc/SpeedControllerGroup.h>
-#include <frc/PWMVictorSPX.h>
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/XboxController.h>
 #include <frc/drive/DifferentialDrive.h>
 
+#include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 class Robot : public frc::TimedRobot 
 {
   //Configuration constants will go here until a configuration system can be set up
-  using driveMotor_t = frc::PWMVictorSPX;
-  using intakeMotor_t = frc::PWMVictorSPX;
-  using storageMotor_t = frc::PWMVictorSPX;
-  using hookMotor_t = frc::PWMVictorSPX;
+  using joystick_t = frc::Joystick;
+  using driveMotor_t = ctre::phoenix::motorcontrol::can::WPI_VictorSPX;
+  using intakeMotor_t = driveMotor_t;
+  using storageMotor_t = driveMotor_t;
+  using hookMotor_t = driveMotor_t;
 
   using controller_t = frc::XboxController;
   using driver_t = frc::DifferentialDrive;
@@ -36,6 +38,7 @@ class Robot : public frc::TimedRobot
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};
+     static constexpr int leJoystickLeftPort{0};
 
      static constexpr int portDriveFrontLeft{1};
      static constexpr int portDriveFrontRight{3};
@@ -57,6 +60,7 @@ class Robot : public frc::TimedRobot
   void TestPeriodic() override;
  private:
      controller_t leController{controllerPort}; //Of epic dankness
+     joystick_t leJoystickLeft{leJoystickLeftPort};
   //Declare Motors
      driveMotor_t driveMotorFrontLeft{portDriveFrontLeft};
      driveMotor_t driveMotorFrontRight{portDriveFrontRight};

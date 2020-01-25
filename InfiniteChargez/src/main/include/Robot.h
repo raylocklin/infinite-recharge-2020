@@ -12,6 +12,7 @@
 
 #include <string>
 
+#include <frc/SpeedControllerGroup.h>
 #include <frc/PWMVictorSPX.h>
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
@@ -35,6 +36,7 @@ class Robot : public frc::TimedRobot
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};
+
      static constexpr int portDriveFrontLeft{0};
      static constexpr int portDriveFrontRight{1};
      static constexpr int portDriveBackLeft{2};
@@ -68,7 +70,9 @@ class Robot : public frc::TimedRobot
 
      hookMotor_t hookMotor{portHook};
   //Declare Motor Groups
-    driver_t driverMain{driveMotorLeft, driveMotorRight};
+    frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
+    frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
+    driver_t driverMain{driveMotorsLeft, driveMotorsRight};
     //Input checking funcitons
     void checkAndExec();
     void joystickPosition();

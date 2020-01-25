@@ -34,7 +34,14 @@ class Robot : public frc::TimedRobot
   private:
    static constexpr double intakeSpeed{1};
    static constexpr double speedMultiplier{1};
-   static constexpr double rotationMultiplier{1};
+   static constexpr double rotationMultiplier{.75};
+    
+    /*The input is raised to a power to enable more
+    time on the lower curves
+    */
+
+   static constexpr double speedCurvePower{3};
+   static constexpr double rotationCurvePower{5};
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};

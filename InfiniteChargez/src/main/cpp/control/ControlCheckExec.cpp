@@ -14,10 +14,10 @@
     
     void Robot::joystickPosition()
     {
-            std::cout << leController.GetX(frc::GenericHID::JoystickHand::kLeftHand) << '\n';
-            driverMain.ArcadeDrive(
-            speedMultiplier * std::pow(
-                leController.GetY(frc::GenericHID::JoystickHand::kLeftHand), speedCurvePower),
-            rotationMultiplier * std::pow(
-                leController.GetX(frc::GenericHID::JoystickHand::kLeftHand), rotationCurvePower));
+            driveMotorsRight.Set(-leController.GetY(frc::GenericHID::JoystickHand::kLeftHand));
+            driveMotorsLeft.Set(leController.GetY(frc::GenericHID::JoystickHand::kRightHand));
+            /*driverMain.ArcadeDrive(
+            leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),
+            leController.GetX(frc::GenericHID::JoystickHand::kLeftHand));
+            */
     }

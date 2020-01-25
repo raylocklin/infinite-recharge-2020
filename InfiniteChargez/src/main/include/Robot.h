@@ -37,14 +37,14 @@ class Robot : public frc::TimedRobot
  private:
      static constexpr int controllerPort{0};
 
-     static constexpr int portDriveFrontLeft{0};
-     static constexpr int portDriveFrontRight{1};
+     static constexpr int portDriveFrontLeft{1};
+     static constexpr int portDriveFrontRight{3};
      static constexpr int portDriveBackLeft{2};
-     static constexpr int portDriveBackRight{3};
-     static constexpr int portIntakeLeft{4};
-     static constexpr int portIntakeRight{5};
-     static constexpr int portStorage{6};
-     static constexpr int portHook{7};
+     static constexpr int portDriveBackRight{4};
+     static constexpr int portIntakeLeft{5};
+     static constexpr int portIntakeRight{6};
+     static constexpr int portStorage{7};
+     static constexpr int portHook{8};
 
 
  public:

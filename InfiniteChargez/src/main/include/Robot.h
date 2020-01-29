@@ -22,6 +22,7 @@
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 class Robot : public frc::TimedRobot 
 {
+  bool tankMode{false};
   //Configuration constants will go here until a configuration system can be set up
   using joystick_t = frc::Joystick;
   using driveMotor_t = ctre::phoenix::motorcontrol::can::WPI_VictorSPX;

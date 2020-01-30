@@ -7,6 +7,8 @@
 
 #include "Robot.h"
 
+#include "ControlCheckExec.h"
+
 #include <iostream>
 
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -61,7 +63,10 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::TeleopInit() {}
 
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic()
+{
+  checkAndExec();
+}
 
 void Robot::TestPeriodic() {}
 

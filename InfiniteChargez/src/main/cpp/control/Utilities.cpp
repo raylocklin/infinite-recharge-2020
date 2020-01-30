@@ -3,9 +3,11 @@
 #include <math.h>
 #include <cmath>
 #include <utility>
+#include "Pair2D.h"
+
 namespace utilities
 {
-    std::pair<double, double> squarify(double x, double y)
+    Pair2D<double> squarify(double x, double y)
     {
         double angle{atan2(x, y)};
         //Take the percentage from the origin to the edge of the circle
@@ -22,7 +24,7 @@ namespace utilities
         //Generate the radius which is the same percentage from the circle but this time from the origin to suqare square
         double rawSquareRadius{circleRadiusPercent * squareRadiusMax};
 
-        return std::pair<double, double> {rawSquareRadius * std::cos(angle), rawSquareRadius * std::sin(angle)};
+        return Pair2D<double> {rawSquareRadius * std::cos(angle), rawSquareRadius * std::sin(angle)};
     }
 
 }

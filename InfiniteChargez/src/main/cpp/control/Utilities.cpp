@@ -11,6 +11,8 @@ namespace utilities
 {
     Pair2D<double> squarify(double x, double y)
     {
+        if (x == 0 && y ==0)
+            return Pair2D<double>{0,0};
         //std::cout << "X: " << x << "Y: " << y << '\n';
         const double angle{std::atan2(y, x)}; //Why doesthe angle keep returning intermittently to 2.75099
         //std::cout << "Angle: " << angle << '\n';

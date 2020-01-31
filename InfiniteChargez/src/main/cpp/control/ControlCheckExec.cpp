@@ -28,9 +28,9 @@
         
         //Squarified Values
         const utilities::Pair2D<double> SquareJoystickLeft{utilities::squarify(JoystickLeftX, JoystickLeftY)};
-        const utilities::Pair2D<double> SquareJoystickRight{utilities::squarify(JoystickRightX, JoystickRightY)};
+        //const utilities::Pair2D<double> SquareJoystickRight{utilities::squarify(JoystickRightX, JoystickRightY)};
 
-        //std::cout << "X: " << SquareJoystickLeft.x << " Y: " << SquareJoystickLeft.y << '\n';
+        std::cout << "X: " << SquareJoystickLeft.x << " Y: " << SquareJoystickLeft.y << '\n';
 
 
         if(tankMode)
@@ -40,8 +40,8 @@
         }
         else 
         {
-            //driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));
-            //driveMotorsLeft.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
+            //driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));
+            //driveMotorsLeft.Set(-std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
         }
             /*driverMain.ArcadeDrive(
             leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),

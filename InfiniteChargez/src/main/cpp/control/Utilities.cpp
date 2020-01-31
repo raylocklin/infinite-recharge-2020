@@ -27,7 +27,7 @@ namespace utilities
         double processedAngleForSquare{(std::abs(std::fmod((angle + M_PI_4), M_PI_2))) - M_PI_4};
         //Since fmod returns negative if the input is negative, it must be made positive in order to align with mathematical modulo
         //std::cout <<  processedAngleForSquare;
-        double squareRadiusMax{std::sqrt(std::tan(processedAngleForSquare) * std::tan(processedAngleForSquare) + 1)};
+        double squareRadiusMax{std::sqrt(std::pow(std::tan(processedAngleForSquare), 2.0) + 1)};
         std::cout << squareRadiusMax;
         //Generate the radius which is the same percentage from the circle but this time from the origin to suqare square
         //https://www.desmos.com/calculator/jvgokzaevl Uses the modulo equation by Raven Jyro Felix[Jehbar Ibarra]

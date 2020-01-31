@@ -24,7 +24,7 @@ namespace utilities
         *Since the formula offsets the angle by pi/2, it must be added to make
         *The circle upright
         */
-        double processedAngleForSquare{(std::fmod((angle + M_PI_4), M_PI_2)) - M_PI_4};
+        double processedAngleForSquare{(std::abs(std::fmod((angle + M_PI_4), M_PI_2))) - M_PI_4};
         //std::cout <<  processedAngleForSquare;
         double squareRadiusMax{std::sqrt(std::tan(processedAngleForSquare) * std::tan(processedAngleForSquare) + 1)};
         std::cout << squareRadiusMax;

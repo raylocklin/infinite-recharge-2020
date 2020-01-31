@@ -3,13 +3,16 @@
 #include <math.h>
 #include <cmath>
 #include <utility>
+#include <iostream>
 #include "Pair2D.h"
 
 namespace utilities
 {
     Pair2D<double> squarify(double x, double y)
     {
-        double angle{atan2(x, y)};
+        //std::cout << "X: " << x << "Y: " << y << '\n';
+        double angle{std::atan2(x, y)};
+        std::cout << "Angle: " << angle << '\n';
         //Take the percentage from the origin to the edge of the circle
         double circleRadiusPercent{std::sqrt(x * x + y * y)};
         /*Find the maximum distance to a square whose sides are the diameter of the circle from the angle

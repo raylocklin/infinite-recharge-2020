@@ -41,7 +41,6 @@ class Robot : public frc::TimedRobot
 
   using controller_t = frc::XboxController;
   //Automation Type Aliases
-  using differentialDriveOdo_t = frc::DifferentialDriveOdometry;
   using accelerometer_t = frc::BuiltInAccelerometer;
   
   //Chrono Alisases
@@ -115,7 +114,6 @@ class Robot : public frc::TimedRobot
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
 
-    differentialDriveOdo_t leDifferentialOdometer;
     
     //Input checking funcitons
     void checkAndExec();

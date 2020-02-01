@@ -4,5 +4,5 @@
 void Robot::updatePos(duration_t delta)
 {
     std::cout << delta.count();
-    std::cout << "reeee";
+    std::cout << "reeee" << '\n';
 }

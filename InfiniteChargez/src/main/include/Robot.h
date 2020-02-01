@@ -20,7 +20,7 @@
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/XboxController.h>
 #include <frc/drive/DifferentialDrive.h>
-
+#include <frc/BuiltInAccelerometer.h>
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 
 #include <adi/ADIS16448_IMU.h>
@@ -40,6 +40,7 @@ class Robot : public frc::TimedRobot
   using controller_t = frc::XboxController;
   //Automation Type Aliases
   using differentialDriveOdo_t = frc::DifferentialDriveOdometry;
+  using accelerometer_t = frc::BuiltInAccelerometer;
 
   private:
    static constexpr double intakeSpeed{1};
@@ -97,6 +98,7 @@ class Robot : public frc::TimedRobot
      hookMotor_t hookMotor{portHook};
      //Non-motor components
      gyroscope_t leGyroscope{};
+     accelerometer_t leAccelerometer{};
 
   //Declare Motor Groups
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};

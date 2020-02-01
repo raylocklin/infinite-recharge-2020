@@ -11,15 +11,15 @@
 #include <units/units.h>
 #include <frc/geometry/Rotation2d.h>
 #include <frc/geometry/Pose2d.h>
-
+#include <frc/BuiltInAccelerometer.h>
 #include <iostream>
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::OdometryTests()
 {
-
-  std::cout << "Acceleration X: " << leGyroscope.GetAccelInstantX() << " Y: " << leGyroscope.GetAccelInstantY();
+  std::cout << "Built Int Acceleration X: " << leAccelerometer.GetX() << " Y: " << leAccelerometer.GetY() << '\n';
+  std::cout << "Acceleration X: " << leGyroscope.GetAccelInstantX() << " Y: " << leGyroscope.GetAccelInstantY() << '\n';
   std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ() << '\n';
   //std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
 
@@ -27,7 +27,8 @@ void Robot::OdometryTests()
 
 Robot::Robot():
   leDifferentialOdometer{frc::Rotation2d{0.0_rad},
-    frc::Pose2d{}}
+    frc::Pose2d{}}, 
+  leAccelerometer{frc::BuiltInAccelerometer::kRange_8G}
 {
   
 

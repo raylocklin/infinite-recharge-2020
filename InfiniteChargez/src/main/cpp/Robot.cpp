@@ -19,21 +19,20 @@
 void Robot::OdometryTests()
 {
 
+  std::cout << "Acceleration X: " << leGyroscope.GetAccelInstantX() << " Y: " << leGyroscope.GetAccelInstantY();
   std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ() << '\n';
   //std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
 
 }
+
 Robot::Robot():
   leDifferentialOdometer{frc::Rotation2d{0.0_rad},
     frc::Pose2d{}}
 {
-  leGyroscope.Calibrate();
-  std::cout << "Gyroscope Callibrated";
-  leGyroscope.
-
   
 
 }
+
 void Robot::RobotInit() 
 {
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
@@ -93,12 +92,15 @@ void Robot::AutonomousPeriodic()
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
-{
+{ 
   OdometryTests();
   checkAndExec();
 }
 
-void Robot::TestPeriodic() {}
+void Robot::TestPeriodic()
+{
+  OdometryTests();
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }

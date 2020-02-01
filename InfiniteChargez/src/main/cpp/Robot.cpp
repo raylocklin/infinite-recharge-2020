@@ -19,7 +19,8 @@
 void Robot::OdometryTests()
 {
 
-  std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
+  std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ() << '\n';
+  //std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
 
 }
 Robot::Robot():
@@ -28,6 +29,7 @@ Robot::Robot():
 {
   leGyroscope.Calibrate();
   std::cout << "Gyroscope Callibrated";
+  leGyroscope.
 
   
 
@@ -49,7 +51,6 @@ void Robot::RobotInit()
  */
 void Robot::RobotPeriodic()
 {
-  //std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ();
 }
 
 

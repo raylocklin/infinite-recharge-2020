@@ -28,7 +28,8 @@ void Robot::OdometryTests()
 Robot::Robot():
   leDifferentialOdometer{frc::Rotation2d{0.0_rad},
     frc::Pose2d{}}, 
-  leAccelerometer{frc::BuiltInAccelerometer::kRange_8G}
+  leAccelerometer{frc::BuiltInAccelerometer::kRange_8G},
+  lastSnapshot{clock_t::now()}
 {
   
 
@@ -94,6 +95,9 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
 { 
+  std::cout << "reee";
+  Robot::updatePos(std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot));
+  lastSnapshot = clock_t::now();
   OdometryTests();
   checkAndExec();
 }

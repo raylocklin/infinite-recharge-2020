@@ -46,7 +46,8 @@ class Robot : public frc::TimedRobot
   
   //Chrono Alisases
   using clock_t = std::chrono::steady_clock;
-  using timePoint_t = clock_t::time_point;
+  using timePoint_t = std::chrono::steady_clock::time_point;
+  using duration_t = std::chrono::duration<double>;
 
 
   private:
@@ -128,11 +129,11 @@ class Robot : public frc::TimedRobot
     void intakeIn();
     void intakeOut();
     void intakeStop();
-    void updatePos();
+    void updatePos(duration_t delta);
   //Control handling nested class
   //Declare Controllers
   //Declare Time Variables
-  timePoint_t lastSnapshot{};
+  timePoint_t lastSnapshot;
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Yeeter McYeeterson";
   const std::string kAutoNameCustom = "Yeeter McYeeterson";

@@ -26,7 +26,7 @@
         //Up isnegative in Xbox controllers
         const double JoystickRightY{-leController.GetY(frc::GenericHID::JoystickHand::kRightHand)};
         
-        std::cout << "X: " << JoystickLeftX << " Y: " << JoystickLeftY << '\n';
+        //std::cout << "X: " << JoystickLeftX << " Y: " << JoystickLeftY << '\n';
 
         //Squarified Values
         const utilities::Pair2D<double> SquareJoystickLeft{utilities::squarify(JoystickLeftX, JoystickLeftY)};

@@ -11,7 +11,9 @@ The controller used is the glorious Xbox Controller.
 
 **Motion:**
 "Arcade" style control 
-with the both joysticks.
+Left joystick is used to control the motion.
+Up and down moves the robot forwards and backwards
+Left and Right turns the robot respectively
 
 **Intake:**
 1. A to have the intake motors spin in

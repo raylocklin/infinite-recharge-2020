@@ -20,6 +20,9 @@
 #include <frc/drive/DifferentialDrive.h>
 
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
+
+#include <adi/ADIS16448_IMU.h>
+
 class Robot : public frc::TimedRobot 
 {
   bool tankMode{false};
@@ -30,8 +33,12 @@ class Robot : public frc::TimedRobot
   using storageMotor_t = driveMotor_t;
   using hookMotor_t = driveMotor_t;
 
+  using gyroscope_t = frc::ADIS16448_IMU;
+
   using controller_t = frc::XboxController;
   using driver_t = frc::DifferentialDrive;
+  //Automation Type Aliases
+
   private:
    static constexpr double intakeSpeed{1};
    static constexpr double speedMultiplier{0.75};
@@ -44,6 +51,8 @@ class Robot : public frc::TimedRobot
     //Must be odd for the moment or else the robo cannot move backwards.
    static constexpr double speedCurvePower{3};
    static constexpr double rotationCurvePower{1};
+
+   //Automation Con
   //Ports for Motors and Controllers
  private:
      static constexpr int controllerPort{0};
@@ -82,6 +91,8 @@ class Robot : public frc::TimedRobot
      storageMotor_t storageMotor{portStorage};
 
      hookMotor_t hookMotor{portHook};
+     //Non-motor components
+     gyroscope_t leGyroscope{};
   //Declare Motor Groups
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};

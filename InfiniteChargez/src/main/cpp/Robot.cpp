@@ -8,15 +8,32 @@
 #include "Robot.h"
 
 #include "ControlCheckExec.h"
+#include <units/units.h>
+#include <frc/geometry/Rotation2d.h>
+#include <frc/geometry/Pose2d.h>
 
 #include <iostream>
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
-void Robot::RobotInit() 
+void Robot::OdometryTests()
+{
+
+  std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
+
+}
+Robot::Robot():
+  leDifferentialOdometer{frc::Rotation2d{0.0_rad},
+    frc::Pose2d{}}
 {
   leGyroscope.Calibrate();
   std::cout << "Gyroscope Callibrated";
+
+  
+
+}
+void Robot::RobotInit() 
+{
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
@@ -32,8 +49,9 @@ void Robot::RobotInit()
  */
 void Robot::RobotPeriodic()
 {
-  std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ();
+  //std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ();
 }
+
 
 /**
  * This autonomous (along with the chooser code above) shows how to select
@@ -75,6 +93,7 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
 {
+  OdometryTests();
   checkAndExec();
 }
 

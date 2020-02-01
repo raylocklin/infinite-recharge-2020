@@ -11,7 +11,9 @@
 #include "ControlCheckExec.h"
 
 #include <string>
-
+#include <frc/kinematics/DifferentialDriveOdometry.h>
+#include <frc/geometry/Rotation2d.h>
+#include <frc/geometry/Pose2d.h>
 #include <frc/Joystick.h>
 #include <frc/SpeedControllerGroup.h>
 #include <frc/TimedRobot.h>
@@ -36,8 +38,8 @@ class Robot : public frc::TimedRobot
   using gyroscope_t = frc::ADIS16448_IMU;
 
   using controller_t = frc::XboxController;
-  using driver_t = frc::DifferentialDrive;
   //Automation Type Aliases
+  using differentialDriveOdo_t = frc::DifferentialDriveOdometry;
 
   private:
    static constexpr double intakeSpeed{1};
@@ -69,6 +71,8 @@ class Robot : public frc::TimedRobot
 
 
  public:
+  Robot();
+  void OdometryTests();
   void RobotInit() override;
   void RobotPeriodic() override;
   void AutonomousInit() override;
@@ -93,10 +97,13 @@ class Robot : public frc::TimedRobot
      hookMotor_t hookMotor{portHook};
      //Non-motor components
      gyroscope_t leGyroscope{};
+
   //Declare Motor Groups
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
-    driver_t driverMain{driveMotorsLeft, driveMotorsRight};
+
+    differentialDriveOdo_t leDifferentialOdometer;
+    
     //Input checking funcitons
     void checkAndExec();
     void joystickPosition();

@@ -21,9 +21,11 @@
 #include <frc/XboxController.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/BuiltInAccelerometer.h>
+#include <frc/geometry/Pose2d.h>
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 
 #include <adi/ADIS16448_IMU.h>
+
 
 class Robot : public frc::TimedRobot 
 {
@@ -41,6 +43,11 @@ class Robot : public frc::TimedRobot
   //Automation Type Aliases
   using differentialDriveOdo_t = frc::DifferentialDriveOdometry;
   using accelerometer_t = frc::BuiltInAccelerometer;
+  
+  //Chrono Alisases
+  using clock_t = std::chrono::steady_clock;
+  using timePoint_t = clock_t::time_point;
+
 
   private:
    static constexpr double intakeSpeed{1};
@@ -82,6 +89,9 @@ class Robot : public frc::TimedRobot
   void TeleopPeriodic() override;
   void TestPeriodic() override;
  private:
+      //RobotDataPoints
+     frc::Pose2d leRobotPosition{};
+
      controller_t leController{controllerPort}; //Of epic dankness
      joystick_t leJoystickLeft{leJoystickLeftPort};
   //Declare Motors
@@ -118,8 +128,11 @@ class Robot : public frc::TimedRobot
     void intakeIn();
     void intakeOut();
     void intakeStop();
+    void updatePos();
   //Control handling nested class
   //Declare Controllers
+  //Declare Time Variables
+  timePoint_t lastSnapshot{};
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Yeeter McYeeterson";
   const std::string kAutoNameCustom = "Yeeter McYeeterson";

@@ -18,9 +18,9 @@
 
 void Robot::OdometryTests()
 {
-  std::cout << "Built Int Acceleration X: " << leAccelerometer.GetX() << " Y: " << leAccelerometer.GetY() << '\n';
-  std::cout << "Acceleration X: " << leGyroscope.GetAccelInstantX() << " Y: " << leGyroscope.GetAccelInstantY() << '\n';
-  std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ() << '\n';
+  //std::cout << "Built Int Acceleration X: " << leAccelerometer.GetX() << " Y: " << leAccelerometer.GetY() << '\n';
+  //std::cout << "Acceleration X: " << leGyroscope.GetAccelInstantX() << " Y: " << leGyroscope.GetAccelInstantY() << '\n';
+  //std::cout << "Z heading: " << leGyroscope.GetGyroAngleZ() << '\n';
   //std::cout << leDifferentialOdometer.GetPose().Translation().X() << '\n';
 
 }

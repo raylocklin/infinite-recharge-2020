@@ -17,7 +17,6 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/XboxController.h>
-#include <frc/drive/DifferentialDrive.h>
 
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 class Robot : public frc::TimedRobot 
@@ -31,7 +30,6 @@ class Robot : public frc::TimedRobot
   using hookMotor_t = driveMotor_t;
 
   using controller_t = frc::XboxController;
-  using driver_t = frc::DifferentialDrive;
   private:
    static constexpr double intakeSpeed{1};
    static constexpr double speedMultiplier{0.75};
@@ -85,7 +83,6 @@ class Robot : public frc::TimedRobot
   //Declare Motor Groups
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
-    driver_t driverMain{driveMotorsLeft, driveMotorsRight};
     //Input checking funcitons
     void checkAndExec();
     void joystickPosition();

@@ -7,6 +7,7 @@
 #include <algorithm>
 #include "Pair2D.h"
 
+#include <units/units.h>
 namespace utilities
 {
     Pair2D<double> squarify(double x, double y)
@@ -36,6 +37,11 @@ namespace utilities
         const double rawSquareRadius{circleRadiusPercent * squareRadiusMax};
 
         return Pair2D<double> {rawSquareRadius * std::cos(angle), rawSquareRadius * std::sin(angle)};
+    }
+
+    units::meter_t simpleAccelToPos(units::meters_per_second_squared_t accel, std::chrono::duration<double> delta)
+    {
+        return units::meter_t{accel.to<double>() * 0.5 * (delta.count() * delta.count())};
     }
 
 }

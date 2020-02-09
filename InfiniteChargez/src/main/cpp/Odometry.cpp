@@ -23,7 +23,7 @@ void Robot::updatePos(duration_t delta)
     leRobotPosition = frc::Pose2d{leTranslate + leRobotPosition.Translation(), frc::Rotation2d{leAngle}};
     std::cout << delta.count();
     std::cout << "LeRobotPosition: X: " << leRobotPosition.Translation().X().to<double>() << '\n'
-        << "Le RobotPosition: Y" << leRobotPosition.Translation().Y().to<double>() << '\n'
-        << "Le RobotPosition: Rot: " << leRobotPosition.Rotation().Radians().to<double>() << '\n' << '\n';
+        << "Le RobotPosition: Y: " << leRobotPosition.Translation().Y().to<double>() << '\n'
+        << "Le RobotPosition: Rot: " << leRobotPosition.Rotation().Radians().to<double>() << '\n' << "***"<< '\n';
 }
 

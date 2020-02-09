@@ -9,6 +9,7 @@
 #include <units/units.h>
 #include <chrono>
 
+#include <units/units.h>
 namespace utilities
 {
     Pair2D<double> squarify(double x, double y)
@@ -48,5 +49,10 @@ namespace utilities
     
     }
 
+
+    units::meter_t simpleAccelToPos(units::meters_per_second_squared_t accel, std::chrono::duration<double> delta)
+    {
+        return units::meter_t{accel.to<double>() * 0.5 * (delta.count() * delta.count())};
+    }
 
 }

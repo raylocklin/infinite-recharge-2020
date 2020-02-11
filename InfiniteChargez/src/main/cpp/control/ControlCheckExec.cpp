@@ -18,13 +18,13 @@
     void Robot::joystickPosition()
     {
         //Compilar arguments and preprocessor macros can be passed to remove unused
-        const double JoystickLeftX{leController.GetX(frc::GenericHID::JoystickHand::kLeftHand)};
+        const double JoystickLeftX{leInputHandler.getJoystickLeft().x};
         //Up is negative in Xbox controllers
-        const double JoystickLeftY{-leController.GetY(frc::GenericHID::JoystickHand::kLeftHand)};
+        const double JoystickLeftY{-leInputHandler.getJoystickLeft().y};
 
-        const double JoystickRightX{leController.GetX(frc::GenericHID::JoystickHand::kRightHand)};
+        const double JoystickRightX{leInputHandler.getJoystickRight().x};
         //Up isnegative in Xbox controllers
-        const double JoystickRightY{-leController.GetY(frc::GenericHID::JoystickHand::kRightHand)};
+        const double JoystickRightY{-leInputHandler.getJoystickRight().y};
         
         //Squarified Values
         const utilities::Pair2D<double> SquareJoystickLeft{utilities::squarify(JoystickLeftX, JoystickLeftY)};

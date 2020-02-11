@@ -47,5 +47,27 @@ namespace utilities
         setBumperRightPressed(XBoxController.GetBumperPressed(frc::GenericHID::kRightHand));
         setBumperRightReleased(XBoxController.GetBumperReleased(frc::GenericHID::kRightHand));
 
+        //Stick Buttons
+        //Left Stick Button
+        setButtonLeftStickState(XBoxController.GetStickButton(frc::GenericHID::kLeftHand));
+        setButtonLeftStickPressed(XBoxController.GetStickButtonPressed(frc::GenericHID::kLeftHand));
+        setButtonLeftStickReleased(XBoxController.GetStickButtonReleased(frc::GenericHID::kLeftHand));
+        //Right Stick Button
+        setButtonRightStickState(XBoxController.GetStickButton(frc::GenericHID::kRightHand));
+        setButtonRightStickPressed(XBoxController.GetStickButtonPressed(frc::GenericHID::kRightHand));
+        setButtonRightStickReleased(XBoxController.GetStickButtonReleased(frc::GenericHID::kRightHand));
+
+        //Back and Start button
+        //Back Button
+        setButtonBackState(XBoxController.GetBackButton());
+        setButtonBackPressed(XBoxController.GetBackButtonPressed());
+        setButtonBackReleased(XBoxController.GetBackButtonReleased());
+        //Start Button
+        setButtonStartState(XBoxController.GetStartButton());
+        setButtonStartPressed(XBoxController.GetStartButtonPressed());
+        setButtonStartReleased(XBoxController.GetStartButtonReleased());
+
+
+
     }
 }

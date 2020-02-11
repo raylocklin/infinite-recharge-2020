@@ -66,8 +66,5 @@ namespace utilities
         setButtonStartState(XBoxController.GetStartButton());
         setButtonStartPressed(XBoxController.GetStartButtonPressed());
         setButtonStartReleased(XBoxController.GetStartButtonReleased());
-
-
-
     }
 }

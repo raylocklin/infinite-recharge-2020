@@ -19,7 +19,7 @@ namespace utilities
     static constexpr bitmask_t ButtonPressedMask{1 << 1};
     static constexpr bitmask_t ButtonReleasedMask{1 << 2};
     public:
-        void operator=(frc::XboxController XboxController);
+        void operator=(frc::XboxController &XboxController);
 
         void setJoystickLeft(joystick_t axis) {m_joystickLeft = axis;}
         joystick_t getJoystickLeft(){return m_joystickLeft;}

@@ -4,7 +4,7 @@
 #include <frc/XboxController.h>
 namespace utilities
 {
-    void XboxInputHandler::operator=(frc::XboxController XBoxController)
+    void XboxInputHandler::operator=(frc::XboxController &XBoxController)
     {
         //Joystick
         setJoystickRight(joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kLeftHand), 

@@ -37,7 +37,15 @@ namespace utilities
         //Trigger Right
         setTriggerRight(XBoxController.GetTriggerAxis(frc::GenericHID::kRightHand));
 
-
+        //Bumper
+        //Bumper Left
+        setBumperLeftState(XBoxController.GetBumper(frc::GenericHID::kLeftHand));
+        setBumperLeftPressed(XBoxController.GetBumperPressed(frc::GenericHID::kLeftHand));
+        setBumperLeftReleased(XBoxController.GetBumperReleased(frc::GenericHID::kLeftHand));
+        //Bumper Right
+        setBumperRightState(XBoxController.GetBumper(frc::GenericHID::kRightHand));
+        setBumperRightPressed(XBoxController.GetBumperPressed(frc::GenericHID::kRightHand));
+        setBumperRightReleased(XBoxController.GetBumperReleased(frc::GenericHID::kRightHand));
 
     }
 }

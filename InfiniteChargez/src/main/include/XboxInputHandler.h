@@ -24,7 +24,7 @@ namespace utilities
         void setJoystickLeft(joystick_t axis) {m_joystickLeft = axis;}
         joystick_t getJoystickLeft(){return m_joystickLeft;}
 
-        void getJoystickRight(joystick_t axis ) {m_joystickRight = axis;}
+        void setJoystickRight(joystick_t axis ) {m_joystickRight = axis;}
         joystick_t getJoystickRight() {return m_joystickRight;}
         
         //Button Functions

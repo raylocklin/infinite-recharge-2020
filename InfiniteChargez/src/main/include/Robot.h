@@ -90,7 +90,7 @@ class Robot : public frc::TimedRobot
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
     driver_t driverMain{driveMotorsLeft, driveMotorsRight};
     //Input checking funcitons
-    void checkAndExec();
+    void checkAndExec(handler_t &leInputHandler);
     void joystickPosition();
     void buttonA();
     void buttonB();

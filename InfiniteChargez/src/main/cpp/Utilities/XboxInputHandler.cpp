@@ -30,5 +30,14 @@ namespace utilities
         setButtonYState(XBoxController.GetYButton());
         setButtonYPressed(XBoxController.GetYButtonPressed());
         setButtonYReleased(XBoxController.GetYButtonReleased());
+
+        //Triggers
+        //Triger Left
+        setTriggerLeft(XBoxController.GetTriggerAxis(frc::GenericHID::kLeftHand));
+        //Trigger Right
+        setTriggerRight(XBoxController.GetTriggerAxis(frc::GenericHID::kRightHand));
+
+
+
     }
 }

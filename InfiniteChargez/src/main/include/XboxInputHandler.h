@@ -9,6 +9,7 @@ namespace utilities
 {
     class XboxInputHandler
     {
+    public:
     using joystick_t = utilities::Pair2D<double>;
     using bitmask_t = std::uint8_t;
     using button_t = std::uint8_t;
@@ -21,11 +22,11 @@ namespace utilities
     public:
         void operator=(frc::XboxController &XboxController);
 
-        void setJoystickLeft(joystick_t axis) {m_joystickLeft = axis;}
-        joystick_t getJoystickLeft(){return m_joystickLeft;}
+        void setJoystickLeft(joystick_t &axis) {m_joystickLeft = axis;}
+        joystick_t& getJoystickLeft(){return m_joystickLeft;}
 
-        void setJoystickRight(joystick_t axis ) {m_joystickRight = axis;}
-        joystick_t getJoystickRight() {return m_joystickRight;}
+        void setJoystickRight(joystick_t &axis) {m_joystickRight = axis;}
+        joystick_t& getJoystickRight() {return m_joystickRight;}
         
         //Button Functions
         //Button A

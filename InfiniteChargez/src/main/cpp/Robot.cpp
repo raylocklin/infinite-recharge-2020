@@ -65,6 +65,7 @@ void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic()
 {
+  leInputHandler = leController;
   checkAndExec();
 }
 

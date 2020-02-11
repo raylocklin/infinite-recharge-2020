@@ -6,12 +6,15 @@ namespace utilities
 {
     void XboxInputHandler::operator=(frc::XboxController &XBoxController)
     {
+        joystick_t joystickLeft{XBoxController.GetX(frc::GenericHID::JoystickHand::kLeftHand), 
+            XBoxController.GetY(frc::GenericHID::kLeftHand)};
+        
+        joystick_t joystickRight{XBoxController.GetX(frc::GenericHID::JoystickHand::kRightHand), 
+            XBoxController.GetY(frc::GenericHID::kRightHand)};
         //Joystick
-        setJoystickRight(joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kLeftHand), 
-            XBoxController.GetY(frc::GenericHID::kLeftHand)});
+        setJoystickRight(joystickLeft);
 
-        setJoystickLeft(joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kRightHand), 
-            XBoxController.GetY(frc::GenericHID::kRightHand)});
+        setJoystickLeft(joystickRight);
         
         //Button Functions
         //Button A

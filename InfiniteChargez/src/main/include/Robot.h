@@ -10,6 +10,7 @@
 
 #include "ControlCheckExec.h"
 #include "XboxInputHandler.h"
+#include "Pair2D.h"
 
 #include <string>
 
@@ -91,7 +92,7 @@ class Robot : public frc::TimedRobot
     driver_t driverMain{driveMotorsLeft, driveMotorsRight};
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
-    void joystickPosition();
+    void joystickPosition(utilities::XboxInputHandler::joystick_t &joystickLeft, utilities::XboxInputHandler::joystick_t &joystickRight);
     void buttonA();
     void buttonB();
     void buttonX();

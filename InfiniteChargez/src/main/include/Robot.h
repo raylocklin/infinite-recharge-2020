@@ -9,6 +9,7 @@
  #pragma once
 
 #include "ControlCheckExec.h"
+#include "XboxInputHandler.h"
 
 #include <string>
 
@@ -32,6 +33,7 @@ class Robot : public frc::TimedRobot
 
   using controller_t = frc::XboxController;
   using driver_t = frc::DifferentialDrive;
+  using handler_t = utilities::XboxInputHandler;
   private:
    static constexpr double intakeSpeed{1};
    static constexpr double speedMultiplier{0.75};
@@ -70,6 +72,7 @@ class Robot : public frc::TimedRobot
  private:
      controller_t leController{controllerPort}; //Of epic dankness
      joystick_t leJoystickLeft{leJoystickLeftPort};
+     handler_t leInputHandler{};
   //Declare Motors
      driveMotor_t driveMotorFrontLeft{portDriveFrontLeft};
      driveMotor_t driveMotorFrontRight{portDriveFrontRight};

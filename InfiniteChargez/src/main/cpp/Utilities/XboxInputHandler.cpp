@@ -7,10 +7,28 @@ namespace utilities
     void XboxInputHandler::operator=(frc::XboxController XBoxController)
     {
         //Joystick
-        m_joystickLeft = joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kLeftHand), 
-            XBoxController.GetY(frc::GenericHID::kLeftHand)};
+        setJoystickRight(joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kLeftHand), 
+            XBoxController.GetY(frc::GenericHID::kLeftHand)});
 
-        m_joystickRight = joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kRightHand), 
-            XBoxController.GetY(frc::GenericHID::kRightHand)};
+        setJoystickLeft(joystick_t{XBoxController.GetX(frc::GenericHID::JoystickHand::kRightHand), 
+            XBoxController.GetY(frc::GenericHID::kRightHand)});
+        
+        //Button Functions
+        //Button A
+        setButtonAState(XBoxController.GetAButton());
+        setButtonAPressed(XBoxController.GetAButtonPressed());
+        setButtonAReleased(XBoxController.GetAButtonReleased());
+        //Button B
+        setButtonBState(XBoxController.GetBButton());
+        setButtonBPressed(XBoxController.GetBButtonPressed());
+        setButtonBReleased(XBoxController.GetBButtonReleased());
+        //Button X
+        setButtonXState(XBoxController.GetXButton());
+        setButtonXPressed(XBoxController.GetXButtonPressed());
+        setButtonXReleased(XBoxController.GetXButtonReleased());
+        //Button Y
+        setButtonYState(XBoxController.GetYButton());
+        setButtonYPressed(XBoxController.GetYButtonPressed());
+        setButtonYReleased(XBoxController.GetYButtonReleased());
     }
 }

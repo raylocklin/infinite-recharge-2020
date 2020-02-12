@@ -9,6 +9,8 @@
  #pragma once
 
 #include "ControlCheckExec.h"
+#include "XboxInputHandler.h"
+#include "Pair2D.h"
 
 #include <string>
 #include <frc/kinematics/DifferentialDriveOdometry.h>
@@ -48,7 +50,8 @@ class Robot : public frc::TimedRobot
   using timePoint_t = std::chrono::steady_clock::time_point;
   using duration_t = std::chrono::duration<double>;
 
-
+  using driver_t = frc::DifferentialDrive;
+  using handler_t = utilities::XboxInputHandler;
   private:
    static constexpr double intakeSpeed{1};
    static constexpr double speedMultiplier{0.75};
@@ -94,6 +97,7 @@ class Robot : public frc::TimedRobot
 
      controller_t leController{controllerPort}; //Of epic dankness
      joystick_t leJoystickLeft{leJoystickLeftPort};
+     handler_t leInputHandler{};
   //Declare Motors
      driveMotor_t driveMotorFrontLeft{portDriveFrontLeft};
      driveMotor_t driveMotorFrontRight{portDriveFrontRight};
@@ -116,8 +120,8 @@ class Robot : public frc::TimedRobot
 
     
     //Input checking funcitons
-    void checkAndExec();
-    void joystickPosition();
+    void checkAndExec(handler_t &leInputHandler);
+    void joystickPosition(utilities::XboxInputHandler::joystick_t &joystickLeft, utilities::XboxInputHandler::joystick_t &joystickRight);
     void buttonA();
     void buttonB();
     void buttonX();

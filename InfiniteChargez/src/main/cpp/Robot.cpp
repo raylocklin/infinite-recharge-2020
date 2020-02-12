@@ -96,7 +96,9 @@ void Robot::TeleopPeriodic()
   Robot::updatePos(std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot));
   lastSnapshot = clock_t::now();
   OdometryTests();
-  checkAndExec();
+
+  leInputHandler = leController;
+  checkAndExec(leInputHandler);
 }
 
 void Robot::TestPeriodic()

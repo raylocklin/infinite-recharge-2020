@@ -15,7 +15,7 @@
         //bumper();  
     }
     
-    void Robot::joystickPosition(utilities::XboxInputHandler::joystick_t &joystickLeft, utilities::XboxInputHandler::joystick_t &joystickRight)
+    void Robot::joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight)
     {
         //Compilar arguments and preprocessor macros can be passed to remove unused
         const double JoystickLeftX{joystickLeft.x};

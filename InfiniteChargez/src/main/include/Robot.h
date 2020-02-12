@@ -121,7 +121,7 @@ class Robot : public frc::TimedRobot
     
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
-    void joystickPosition(utilities::XboxInputHandler::joystick_t &joystickLeft, utilities::XboxInputHandler::joystick_t &joystickRight);
+    void joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight);
     void buttonA();
     void buttonB();
     void buttonX();

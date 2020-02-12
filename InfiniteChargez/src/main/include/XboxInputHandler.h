@@ -1,5 +1,6 @@
 #ifndef YEET_XBOX_INPUT_HANDLER_H
 #define YEET_XBOX_INPUT_HANDLER_H
+
 #include "Pair2D.h"
 
 #include <inttypes.h>

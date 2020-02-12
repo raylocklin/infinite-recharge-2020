@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+
 #include "Utilities.h"
 #include <math.h>
 #include <cmath>
@@ -40,15 +41,6 @@ namespace utilities
 
         return Pair2D<double> {rawSquareRadius * std::cos(angle), rawSquareRadius * std::sin(angle)};
     }
-    units::meter_t simpleAccelToPos(units::meters_per_second_squared_t accel, std::chrono::duration<double> delta)
-    {
-
-#include "Robot.h"
-        return units::meter_t{(accel * (delta.count() * delta.count()) * 0.5 )};
-
-    
-    }
-
 
     units::meter_t simpleAccelToPos(units::meters_per_second_squared_t accel, std::chrono::duration<double> delta)
     {

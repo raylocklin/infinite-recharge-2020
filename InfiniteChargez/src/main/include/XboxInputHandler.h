@@ -3,7 +3,7 @@
 #include "Pair2D.h"
 
 #include <inttypes.h>
-
+#include <string>
 #include <frc/XboxController.h>
 namespace utilities
 {
@@ -15,11 +15,15 @@ namespace utilities
     using button_t = std::uint8_t;
     using trigger_t = double;
 
+    using snapshot_t = std::string;
+
     private:
     static constexpr bitmask_t ButtonStateMask{1 << 0};
     static constexpr bitmask_t ButtonPressedMask{1 << 1};
     static constexpr bitmask_t ButtonReleasedMask{1 << 2};
     public:
+
+        snapshot_t getSnapshot(); 
         void operator=(frc::XboxController &XboxController);
 
         void setJoystickLeft(joystick_t &axis) {m_joystickLeft = axis;}

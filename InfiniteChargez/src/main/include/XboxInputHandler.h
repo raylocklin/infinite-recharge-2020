@@ -27,10 +27,10 @@ namespace utilities
         void operator=(frc::XboxController &XboxController);
 
         void setJoystickLeft(joystick_t &axis) {m_joystickLeft = axis;}
-        joystick_t& getJoystickLeft(){return m_joystickLeft;}
+        joystick_t getJoystickLeft(){return m_joystickLeft;}
 
         void setJoystickRight(joystick_t &axis) {m_joystickRight = axis;}
-        joystick_t& getJoystickRight() {return m_joystickRight;}
+        joystick_t getJoystickRight() {return m_joystickRight;}
         
         //Button Functions
         //Button A

@@ -1,6 +1,7 @@
 #include "XboxInputHandler.h"
 #include "Utilities.h"
 
+#include <string>
 #include <frc/XboxController.h>
 namespace utilities
 {
@@ -69,5 +70,75 @@ namespace utilities
         setButtonStartState(XBoxController.GetStartButton());
         setButtonStartPressed(XBoxController.GetStartButtonPressed());
         setButtonStartReleased(XBoxController.GetStartButtonReleased());
+    }
+
+    XboxInputHandler::snapshot_t XboxInputHandler::getSnapshot()
+    {
+        constexpr char pad{' '};
+        snapshot_t snapshot{""};
+        //Joystick
+        //Left Joystick
+        snapshot += std::to_string(getJoystickLeft().x) + pad;
+        snapshot += std::to_string(getJoystickLeft().y) + pad;
+
+        //Left Joystick
+
+        snapshot += std::to_string(getJoystickRight().x) + pad;
+        snapshot += std::to_string(getJoystickRight().y) + pad;
+
+        //Button Functions
+        //Button A
+        snapshot += std::to_string(getButtonAState()) + pad;
+        snapshot += std::to_string(getButtonAPressed()) + pad;
+        snapshot += std::to_string(getButtonAReleased()) + pad;
+        //Button B
+        snapshot += std::to_string(getButtonBState()) + pad;
+        snapshot += std::to_string(getButtonBPressed()) + pad;
+        snapshot += std::to_string(getButtonBReleased()) + pad;
+        //Button X
+        snapshot += std::to_string(getButtonXState()) + pad;
+        snapshot += std::to_string(getButtonXPressed()) + pad;
+        snapshot += std::to_string(getButtonXReleased()) + pad;
+        //Button Y
+        snapshot += std::to_string(getButtonYState()) + pad;
+        snapshot += std::to_string(getButtonYPressed()) + pad;
+        snapshot += std::to_string(getButtonYReleased()) + pad;
+
+        //Triggers
+        //Triger Left
+        snapshot += std::to_string(getTriggerLeft()) + pad;
+        //Trigger Right
+        snapshot += std::to_string(getTriggerRight()) + pad;
+
+        //Bumper
+        //Bumper Left
+        snapshot += std::to_string(getBumperLeftState()) + pad;
+        snapshot += std::to_string(getBumperLeftPressed()) + pad;
+        snapshot += std::to_string(getBumperLeftReleased()) + pad;
+        //Bumper Right
+        snapshot += std::to_string(getBumperRightState()) + pad;
+        snapshot += std::to_string(getBumperRightPressed()) + pad;
+        snapshot += std::to_string(getBumperRightReleased()) + pad;
+
+        //Stick Buttons
+        //Left Stick Button
+       snapshot += std::to_string(getButtonLeftStickState()) + pad;
+       snapshot += std::to_string(getButtonLeftStickPressed()) + pad;
+       snapshot += std::to_string(getButtonLeftStickReleased()) + pad;
+
+        //Right Stick Button
+        snapshot += std::to_string(getButtonRightStickState()) + pad;
+        snapshot += std::to_string(getButtonRightStickPressed()) + pad;
+        snapshot += std::to_string(getButtonRightStickReleased()) + pad;
+
+        //Back and Start button
+        //Start Button
+        snapshot += std::to_string(getButtonStartState()) + pad;
+        snapshot += std::to_string(getButtonStartPressed()) + pad;
+        snapshot += std::to_string(getButtonStartReleased()) + pad;
+        //Back Button
+        snapshot += std::to_string(getButtonBackState()) + pad;
+        snapshot += std::to_string(getButtonBackPressed()) + pad;
+        snapshot += std::to_string(getButtonBackReleased()) + pad;
     }
 }

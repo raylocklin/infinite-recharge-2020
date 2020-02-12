@@ -5,9 +5,9 @@
 #include <iostream>
 #include <math.h>
 
-    void Robot::checkAndExec()
+    void Robot::checkAndExec(handler_t &leInputhandler)
     {
-        joystickPosition();
+        joystickPosition(leInputHandler.getJoystickLeft(), leInputHandler.getJoystickRight());
         //buttonA();
         //buttonB();
         //buttonX();
@@ -15,16 +15,16 @@
         //bumper();  
     }
     
-    void Robot::joystickPosition()
+    void Robot::joystickPosition(utilities::XboxInputHandler::joystick_t &joystickLeft, utilities::XboxInputHandler::joystick_t &joystickRight)
     {
         //Compilar arguments and preprocessor macros can be passed to remove unused
-        const double JoystickLeftX{leController.GetX(frc::GenericHID::JoystickHand::kLeftHand)};
+        const double JoystickLeftX{joystickLeft.x};
         //Up is negative in Xbox controllers
-        const double JoystickLeftY{-leController.GetY(frc::GenericHID::JoystickHand::kLeftHand)};
+        const double JoystickLeftY{-joystickLeft.y};
 
-        const double JoystickRightX{leController.GetX(frc::GenericHID::JoystickHand::kRightHand)};
+        const double JoystickRightX{joystickLeft.x};
         //Up isnegative in Xbox controllers
-        const double JoystickRightY{-leController.GetY(frc::GenericHID::JoystickHand::kRightHand)};
+        const double JoystickRightY{-joystickLeft.y};
         
         //std::cout << "X: " << JoystickLeftX << " Y: " << JoystickLeftY << '\n';
 
@@ -35,18 +35,18 @@
         //std::cout << "X: " << SquareJoystickLeft.x << " Y: " << SquareJoystickLeft.y << '\n';
 
 
-        if(tankMode)
-        {
-            driveMotorsRight.Set(JoystickRightY);
-            driveMotorsLeft.Set(JoystickLeftY);
-        }
-        else 
-        {
-            driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));
-            driveMotorsLeft.Set(-std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
-        }
-            /*driverMain.ArcadeDrive(
-            leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),
-            leController.GetX(frc::GenericHID::JoystickHand::kLeftHand));
-            */
+        //if(tankMode)
+        //{
+        //    driveMotorsRight.Set(JoystickRightY);
+        //    driveMotorsLeft.Set(JoystickLeftY);
+        //}
+        //else 
+        //{
+        //    driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));
+        //    driveMotorsLeft.Set(-std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
+        //}
+        //    /*driverMain.ArcadeDrive(
+        //    leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),
+        //    leController.GetX(frc::GenericHID::JoystickHand::kLeftHand));
+        //    */
     }

@@ -28,10 +28,14 @@
 
 #include <adi/ADIS16448_IMU.h>
 
+#include <fstream>
 
 class Robot : public frc::TimedRobot 
 {
+private:
+  const std::string inputRecordFileName{"InputRecord.rcd"};
   bool tankMode{false};
+  std::fstream inputRecordFile{inputRecordFileName};
   //Configuration constants will go here until a configuration system can be set up
   using joystick_t = frc::Joystick;
   using driveMotor_t = ctre::phoenix::motorcontrol::can::WPI_VictorSPX;

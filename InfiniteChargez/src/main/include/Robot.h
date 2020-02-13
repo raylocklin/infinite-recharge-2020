@@ -130,6 +130,8 @@ private:
 
     //Recording Utilities
     void executeRecording(std::fstream &recordingFileName);
+    void recordActionsExec(utilities::XboxInputHandler &leInputHandler);
+
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
     void joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight);

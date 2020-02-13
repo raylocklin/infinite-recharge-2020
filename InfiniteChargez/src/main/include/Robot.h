@@ -35,7 +35,8 @@ class Robot : public frc::TimedRobot
 private:
   const std::string inputRecordFileName{"InputRecord.rcd"};
   bool tankMode{false};
-  std::fstream inputRecordFile{inputRecordFileName};
+  std::fstream inputRecordFile{};
+  std::fstream inputRecordFileBuffer{};
   //Configuration constants will go here until a configuration system can be set up
   using joystick_t = frc::Joystick;
   using driveMotor_t = ctre::phoenix::motorcontrol::can::WPI_VictorSPX;
@@ -96,6 +97,8 @@ private:
   void TeleopPeriodic() override;
   private:
   bool isRecording{false}; //Really hacky, will remain until the deeper WPLIB api documentation can be discovered *Indiana Jones Music*
+  bool recordingEnabled{true};
+  long double meanDelta{0};
   public:
   void TestPeriodic() override;
  private:

@@ -89,26 +89,44 @@ void Robot::AutonomousPeriodic()
   }
 }
 
-void Robot::TeleopInit() {}
+void Robot::TeleopInit()
+{
+  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream | in);
+  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
+}
+
 
 void Robot::TeleopPeriodic()
 { 
-  Robot::updatePos(std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot));
+  duration_t delta {std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot)};
+  Robot::updatePos(delta);
   lastSnapshot = clock_t::now();
   OdometryTests();
 
   leInputHandler = leController;
   checkAndExec(leInputHandler);
-  if (leInputHandler.getButtonStartState())
+  if (leInputHandler.getButtonStartState() && recordingEnabled)
   {
     isRecording = true;
+    recordingEnabled = false;
+    meanDelta = delta.count();
   }
   if (leInputHandler.getButtonBackState())  //Do not use elseif!!! If is for better response!!!
   {
     isRecording = false;
+    std::string line;
+    inputRecordFile << std::to_string(meanDelta) << '\n';
+    while(std::getline(inputRecordFileBuffer, line))
+    {
+      inputRecordFile << line << '\n';
+    }
   }
-  
 
+  if (isRecording)
+  {
+    meanDelta = (meanDelta + delta.count()) / 2;
+    inputRecordFileBuffer << leInputHandler.getSnapshot() << '\n';
+  }
 }
 
 void Robot::TestPeriodic()

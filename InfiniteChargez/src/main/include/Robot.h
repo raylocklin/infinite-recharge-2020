@@ -134,6 +134,7 @@ private:
 
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
+    void recordActionsExec(utilities::XboxInputHandler &leInputHandler, duration_t delta);
     void joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight);
     void buttonA();
     void buttonB();

@@ -108,28 +108,8 @@ void Robot::TeleopPeriodic()
 
   leInputHandler = leController;
   checkAndExec(leInputHandler);
-  if (leInputHandler.getButtonStartState() && recordingEnabled)
-  {
-    isRecording = true;
-    recordingEnabled = false;
-    meanDelta = delta.count();
-  }
-  if (leInputHandler.getButtonBackState())  //Do not use elseif!!! If is for better response!!!
-  {
-    isRecording = false;
-    std::string line;
-    inputRecordFile << std::to_string(meanDelta) << '\n';
-    while(std::getline(inputRecordFileBuffer, line))
-    {
-      inputRecordFile << line << '\n';
-    }
-  }
-
-  if (isRecording)
-  {
-    meanDelta = (meanDelta + delta.count()) / 2;
-    inputRecordFileBuffer << leInputHandler.getSnapshot() << '\n';
-  }
+  recordActionsExec(leInputHandler, delta);
+  
 }
 
 void Robot::TestPeriodic()

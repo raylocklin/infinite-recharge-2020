@@ -99,6 +99,16 @@ void Robot::TeleopPeriodic()
 
   leInputHandler = leController;
   checkAndExec(leInputHandler);
+  if (leInputHandler.getButtonStartState())
+  {
+    isRecording = true;
+  }
+  if (leInputHandler.getButtonBackState())  //Do not use elseif!!! If is for better response!!!
+  {
+    isRecording = false;
+  }
+  
+
 }
 
 void Robot::TestPeriodic()

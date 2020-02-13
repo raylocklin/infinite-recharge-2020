@@ -18,9 +18,9 @@
     void Robot::joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight)
     {
         //Compilar arguments and preprocessor macros can be passed to remove unused
-        const double JoystickLeftX{joystickLeft.x};
+        const double JoystickLeftX{leInputHandler.getJoystickLeft().x};
         //Up is negative in Xbox controllers
-        const double JoystickLeftY{-joystickLeft.y};
+        const double JoystickLeftY{-leInputHandler.getJoystickLeft().y};
 
         const double JoystickRightX{joystickLeft.x};
         //Up isnegative in Xbox controllers
@@ -35,13 +35,13 @@
 
         //if(tankMode)
         //{
-        driveMotorsRight.Set(JoystickRightY);
-        driveMotorsLeft.Set(JoystickLeftY);
+        //driveMotorsRight.Set(JoystickRightY);
+        //driveMotorsLeft.Set(JoystickLeftY);
         //}
         //else 
         //{
-        //    driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));
-        //    driveMotorsLeft.Set(-std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
+        driveMotorsRight.Set(std::clamp(SquareJoystickLeft.y + SquareJoystickLeft.x, -1.0, 1.0));
+        driveMotorsLeft.Set(-std::clamp(SquareJoystickLeft.y - SquareJoystickLeft.x, -1.0, 1.0));//FIGURE OUT WHY A NEGATIVE IS NEEDED!!!!
         //}
         //    /*driverMain.ArcadeDrive(
         //    leController.GetY(frc::GenericHID::JoystickHand::kLeftHand),

@@ -13,6 +13,7 @@
 #include <frc/geometry/Pose2d.h>
 #include <frc/BuiltInAccelerometer.h>
 #include <iostream>
+#include <thread>
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
@@ -69,7 +70,9 @@ void Robot::RobotPeriodic()
  */
 void Robot::AutonomousInit() 
 {
-  executeRecording(inputRecordFile);;
+  std::thread recording{executeRecording, inputRecordFile};
+  recording.detach();
+
   m_autoSelected = m_chooser.GetSelected();
   // m_autoSelected = SmartDashboard::GetString("Auto Selector",
   //     kAutoNameDefault);

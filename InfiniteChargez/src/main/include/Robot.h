@@ -129,7 +129,7 @@ private:
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
 
     //Recording Utilities
-    void executeRecording(std::fstream &recordingFileName);
+    friend void executeRecording(Robot *robot);
     void recordActionsExec(utilities::XboxInputHandler &leInputHandler);
 
     //Input checking funcitons
@@ -156,4 +156,5 @@ private:
   std::string m_autoSelected;
 };
 
+void executeRecording(Robot *robot);
 #endif

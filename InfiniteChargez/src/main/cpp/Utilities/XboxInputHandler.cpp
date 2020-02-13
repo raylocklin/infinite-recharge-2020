@@ -140,6 +140,7 @@ namespace utilities
         snapshot += std::to_string(getButtonBackState()) + pad;
         snapshot += std::to_string(getButtonBackPressed()) + pad;
         snapshot += std::to_string(getButtonBackReleased()) + pad;
+        return snapshot;
     }
 
     void XboxInputHandler::operator=(snapshot_t &snapshot)

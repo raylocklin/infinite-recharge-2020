@@ -40,8 +40,6 @@ void Robot::RobotInit()
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
-  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
 }
 
 /**
@@ -70,7 +68,7 @@ void Robot::RobotPeriodic()
  */
 void Robot::AutonomousInit() 
 {
-  std::thread recording{executeRecording, inputRecordFile};
+  std::thread recording(executeRecording, this);
   recording.detach();
 
   m_autoSelected = m_chooser.GetSelected();
@@ -99,6 +97,8 @@ void Robot::AutonomousPeriodic()
 
 void Robot::TeleopInit()
 {
+  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
+  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
 }
 
 

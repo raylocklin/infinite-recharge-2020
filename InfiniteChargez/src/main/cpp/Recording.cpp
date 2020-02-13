@@ -4,16 +4,19 @@
 #include <thread>
 #include <chrono>
 #include <string>
-void Robot::executeRecording(std::fstream &recordingFile)
+#include <fstream>
+void executeRecording(Robot *robot)
 {
+    std::fstream recordingFile{};
+    recordingFile.open(robot->inputRecordFileName , std::fstream::in | std::fstream::out);
     std::string line{""};
-    std::getline(inputRecordFile, line);
-    const duration_t frameDelta{std::stod(line)};
+    std::getline(robot->inputRecordFile, line);
+    const Robot::duration_t frameDelta{std::stod(line)};
 
-    while (std::getline(inputRecordFile, line))
+    while (std::getline(robot->inputRecordFile, line))
     {
-        leInputHandler = line;
-        checkAndExec(leInputHandler);
+        robot->leInputHandler = line;
+        robot->checkAndExec(robot->leInputHandler);
         std::this_thread::sleep_for(frameDelta);
     }
 }
@@ -35,6 +38,7 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
         {
             inputRecordFile << line << '\n';
         }
+        inputRecordFile.close();
     }
 
     if (isRecording)
@@ -42,3 +46,4 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
         meanDelta = (meanDelta + delta.count()) / 2;
         inputRecordFileBuffer << leInputHandler.getSnapshot() << '\n';
     }
+}

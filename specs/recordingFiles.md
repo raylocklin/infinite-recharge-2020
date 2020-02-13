@@ -1,6 +1,7 @@
 Space Separated Values Recording Specification
 ==============================================
 
+File ending: .rcd (ReCorD)
 Because the input devices used to control the robot do not
 give any single value that contains a space, "Space separated values"
 will be used.
@@ -10,12 +11,16 @@ better flexibility. There is no rule against using third-party libraries
 in programming.
 
 ## XboxController recording
-
+### First Line
+The first line of the file will contain a long double containing the average
+delta for the time between snapshots. During parsing, each line will be
+called sequentially with the time interval provided by this line.
+In the code, the long double will be truncated to a double.
+### Subsequent Lines
 The values for each column will be as follows(left to right):
-*Booleans will be recorded as "True/False"*
+*Booleans will be recorded as "1/0"*
 *Preferably, there will be padding to ensure equal columns*
 
-TimeOfAction[double]
 
 LeftJoystickAxisX[double] LeftJoystickAxisY[double]
 RightJoystickAxisX[double] RightJoystickAxisY[double]

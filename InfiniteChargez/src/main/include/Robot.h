@@ -94,6 +94,9 @@ private:
   void AutonomousPeriodic() override;
   void TeleopInit() override;
   void TeleopPeriodic() override;
+  private:
+  bool isRecording{false}; //Really hacky, will remain until the deeper WPLIB api documentation can be discovered *Indiana Jones Music*
+  public:
   void TestPeriodic() override;
  private:
       //RobotDataPoints

@@ -91,7 +91,7 @@ void Robot::AutonomousPeriodic()
 
 void Robot::TeleopInit()
 {
-  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream | in);
+  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
   inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
 }
 

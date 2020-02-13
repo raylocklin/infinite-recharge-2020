@@ -141,4 +141,70 @@ namespace utilities
         snapshot += std::to_string(getButtonBackPressed()) + pad;
         snapshot += std::to_string(getButtonBackReleased()) + pad;
     }
+
+    void XboxInputHandler::operator=(snapshot_t &snapshot)
+    {
+        std::size_t i{0};
+        //Joystick
+        joystick_t joystickLeft{std::stod(snapshot, &i), std::stod(snapshot, &i)};
+        joystick_t joystickRight{std::stod(snapshot, &i), std::stod(snapshot, &i)};
+
+        setJoystickRight(joystickLeft);
+
+        setJoystickLeft(joystickRight);
+        
+        //Button Functions
+        //Button A
+        setButtonAState(std::stoi(snapshot, &i));
+        setButtonAPressed(std::stoi(snapshot, &i));
+        setButtonAReleased(std::stoi(snapshot, &i));
+        //Button B
+        setButtonBState(std::stoi(snapshot, &i));
+        setButtonBPressed(std::stoi(snapshot, &i));
+        setButtonBReleased(std::stoi(snapshot, &i));
+        //Button X
+        setButtonXState(std::stoi(snapshot, &i));
+        setButtonXPressed(std::stoi(snapshot, &i));
+        setButtonXReleased(std::stoi(snapshot, &i));
+        //Button Y
+        setButtonYState(std::stoi(snapshot, &i));
+        setButtonYPressed(std::stoi(snapshot, &i));
+        setButtonYReleased(std::stoi(snapshot, &i));
+
+        //Triggers
+        //Triger Left
+        setTriggerLeft(std::stod(snapshot, &i));
+        //Trigger Right
+        setTriggerRight(std::stod(snapshot, &i));
+
+        //Bumper
+        //Bumper Left
+        setBumperLeftState(std::stoi(snapshot, &i));
+        setBumperLeftPressed(std::stoi(snapshot, &i));
+        setBumperLeftReleased(std::stoi(snapshot, &i));
+        //Bumper Right
+        setBumperRightState(std::stoi(snapshot, &i));
+        setBumperRightPressed(std::stoi(snapshot, &i));
+        setBumperRightReleased(std::stoi(snapshot, &i));
+
+        //Stick Buttons
+        //Left Stick Button
+        setButtonLeftStickState(std::stoi(snapshot, &i));
+        setButtonLeftStickPressed(std::stoi(snapshot, &i));
+        setButtonLeftStickReleased(std::stoi(snapshot, &i));
+        //Right Stick Button
+        setButtonRightStickState(std::stoi(snapshot, &i));
+        setButtonRightStickPressed(std::stoi(snapshot, &i));
+        setButtonRightStickReleased(std::stoi(snapshot, &i));
+
+        //Back and Start button
+        //Start Button
+        setButtonStartState(std::stoi(snapshot, &i));
+        setButtonStartPressed(std::stoi(snapshot, &i));
+        setButtonStartReleased(std::stoi(snapshot, &i));
+        //Back Button
+        setButtonBackState(std::stoi(snapshot, &i));
+        setButtonBackPressed(std::stoi(snapshot, &i));
+        setButtonBackReleased(std::stoi(snapshot, &i));
+    }
 }

@@ -25,6 +25,7 @@ namespace utilities
 
         snapshot_t getSnapshot(); 
         void operator=(frc::XboxController &XboxController);
+        void operator=(snapshot_t &snapshot);
 
         void setJoystickLeft(joystick_t &axis) {m_joystickLeft = axis;}
         joystick_t getJoystickLeft(){return m_joystickLeft;}

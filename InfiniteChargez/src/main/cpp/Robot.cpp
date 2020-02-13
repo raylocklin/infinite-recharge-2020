@@ -104,13 +104,14 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 { 
-  std::cout << leInputHandler.getJoystickLeft().x << '\n';
+  std::cout << leController.GetStartButton() << '\n';
   duration_t delta {std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot)};
   Robot::updatePos(delta);
   lastSnapshot = clock_t::now();
   OdometryTests();
 
   leInputHandler = leController;
+  //std::cout << leInputHandler.getSnapshot() << '\n';
   checkAndExec(leInputHandler);
   recordActionsExec(leInputHandler, delta);
   

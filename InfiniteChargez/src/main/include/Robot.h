@@ -128,7 +128,8 @@ private:
     frc::SpeedControllerGroup driveMotorsLeft{driveMotorFrontLeft, driveMotorBackLeft};
     frc::SpeedControllerGroup driveMotorsRight{driveMotorFrontRight, driveMotorBackRight};
 
-    
+    //Recording Utilities
+    void executeRecording(std::fstream &recordingFileName);
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
     void joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight);

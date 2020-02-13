@@ -38,6 +38,9 @@ void Robot::RobotInit()
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+
+  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
+  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
 }
 
 /**
@@ -64,7 +67,9 @@ void Robot::RobotPeriodic()
  * if-else structure below with additional strings. If using the SendableChooser
  * make sure to add them to the chooser code above as well.
  */
-void Robot::AutonomousInit() {
+void Robot::AutonomousInit() 
+{
+  executeRecording(inputRecordFile);;
   m_autoSelected = m_chooser.GetSelected();
   // m_autoSelected = SmartDashboard::GetString("Auto Selector",
   //     kAutoNameDefault);
@@ -91,8 +96,6 @@ void Robot::AutonomousPeriodic()
 
 void Robot::TeleopInit()
 {
-  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
-  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
 }
 
 

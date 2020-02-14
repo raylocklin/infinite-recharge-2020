@@ -33,7 +33,7 @@
 class Robot : public frc::TimedRobot 
 {
 private:
-  const std::string inputRecordFileName{"InputRecord.rcd"};
+  const std::string inputRecordFileName{"/home/lvuser/InputRecord.rcd"};
   bool tankMode{false};
   std::fstream inputRecordFile{};
   std::fstream inputRecordFileBuffer{};

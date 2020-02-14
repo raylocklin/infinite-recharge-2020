@@ -14,6 +14,7 @@
 #include <frc/BuiltInAccelerometer.h>
 #include <iostream>
 #include <thread>
+#include <frc/Filesystem.h>
 
 #include <frc/smartdashboard/SmartDashboard.h>
 

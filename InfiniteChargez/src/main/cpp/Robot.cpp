@@ -98,8 +98,7 @@ void Robot::AutonomousPeriodic()
 
 void Robot::TeleopInit()
 {
-  inputRecordFile.open(inputRecordFileName, std::fstream::out | std::fstream::in);
-  inputRecordFileBuffer.open(inputRecordFileName + ".buff", std::fstream::out | std::fstream::in);
+  recordingBuffer.open(recordBufferName);
 }
 
 
@@ -114,7 +113,7 @@ void Robot::TeleopPeriodic()
   leInputHandler = leController;
   //std::cout << leInputHandler.getSnapshot() << '\n';
   checkAndExec(leInputHandler);
-  recordActionsExec(leInputHandler, delta);
+  recordActionsExec(leInputHandler, delta, recordingBuffer);
   
 }
 

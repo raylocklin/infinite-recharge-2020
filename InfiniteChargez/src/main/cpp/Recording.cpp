@@ -9,10 +9,10 @@ void executeRecording(Robot *robot)
 {
     std::ifstream recordingFile{robot->inputRecordFileName};
     std::string line{""};
-    std::getline(robot->inputRecordFile, line);
+    std::getline(recordingFile, line);
     const Robot::duration_t frameDelta{std::stod(line)};
 
-    while (std::getline(robot->inputRecordFile, line))
+    while (std::getline(recordingFile, line))
     {
         std::cout << line << '\n';
         robot->leInputHandler = line;

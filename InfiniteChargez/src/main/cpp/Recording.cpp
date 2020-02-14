@@ -7,8 +7,7 @@
 #include <fstream>
 void executeRecording(Robot *robot)
 {
-    std::fstream recordingFile{};
-    recordingFile.open(robot->inputRecordFileName , std::fstream::in | std::fstream::out);
+    std::ifstream recordingFile{robot->inputRecordFileName};
     std::string line{""};
     std::getline(robot->inputRecordFile, line);
     const Robot::duration_t frameDelta{std::stod(line)};

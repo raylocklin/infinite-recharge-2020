@@ -13,9 +13,9 @@ namespace utilities
         joystick_t joystickRight{XBoxController.GetX(frc::GenericHID::JoystickHand::kRightHand), 
             XBoxController.GetY(frc::GenericHID::kRightHand)};
         //Joystick
-        setJoystickRight(joystickLeft);
+        setJoystickLeft(joystickLeft);
 
-        setJoystickLeft(joystickRight);
+        setJoystickRight(joystickRight);
         
         //Button Functions
         //Button A

@@ -14,6 +14,7 @@
 #include <frc/BuiltInAccelerometer.h>
 #include <iostream>
 #include <thread>
+#include <frc/Filesystem.h>
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
@@ -104,12 +105,14 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 { 
+  std::cout << leController.GetStartButton() << '\n';
   duration_t delta {std::chrono::duration_cast<duration_t>(clock_t::now() - lastSnapshot)};
   Robot::updatePos(delta);
   lastSnapshot = clock_t::now();
   OdometryTests();
 
   leInputHandler = leController;
+  //std::cout << leInputHandler.getSnapshot() << '\n';
   checkAndExec(leInputHandler);
   recordActionsExec(leInputHandler, delta);
   

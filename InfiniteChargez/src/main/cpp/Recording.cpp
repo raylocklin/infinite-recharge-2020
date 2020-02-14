@@ -14,6 +14,7 @@ void executeRecording(Robot *robot)
 
     while (std::getline(robot->inputRecordFile, line))
     {
+        std::cout << line << '\n';
         robot->leInputHandler = line;
         robot->checkAndExec(robot->leInputHandler);
         std::this_thread::sleep_for(frameDelta);
@@ -48,6 +49,7 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
 
     if (isRecording)
     {
+        std::cout << "recording" << '\n';
         meanDelta = (meanDelta + delta.count()) / 2;
         recordBuffer << leInputHandler.getSnapshot() << '\n';
     }

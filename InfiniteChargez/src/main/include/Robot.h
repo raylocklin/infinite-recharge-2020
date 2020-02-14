@@ -34,9 +34,8 @@ class Robot : public frc::TimedRobot
 {
 private:
   const std::string inputRecordFileName{"InputRecord.rcd"};
+  const std::string recordBufferName{"InputRecordBuffer.rcd"};
   bool tankMode{false};
-  std::fstream inputRecordFile{};
-  std::fstream inputRecordFileBuffer{};
   //Configuration constants will go here until a configuration system can be set up
   using joystick_t = frc::Joystick;
   using driveMotor_t = ctre::phoenix::motorcontrol::can::WPI_VictorSPX;
@@ -134,7 +133,7 @@ private:
 
     //Input checking funcitons
     void checkAndExec(handler_t &leInputHandler);
-    void recordActionsExec(utilities::XboxInputHandler &leInputHandler, duration_t delta);
+    void recordActionsExec(utilities::XboxInputHandler &leInputHandler, duration_t delta, std::ofstream &recordBuffer);
     void joystickPosition(utilities::XboxInputHandler::joystick_t &&joystickLeft, utilities::XboxInputHandler::joystick_t &&joystickRight);
     void buttonA();
     void buttonB();

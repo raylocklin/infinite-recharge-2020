@@ -20,7 +20,7 @@ void executeRecording(Robot *robot)
     }
 }
 
-void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, duration_t delta)
+void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, duration_t delta, std::ofstream &recordBuffer)
 {
     if (leInputHandler.getButtonStartState() && recordingEnabled)
     {
@@ -28,21 +28,27 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
         recordingEnabled = false;
         meanDelta = delta.count();
     }
-    if (leInputHandler.getButtonBackState()) //Do not use elseif!!! If is for better response!!!
+    if (leInputHandler.getButtonBackState() && !isRecording) //Do not use elseif!!! If is for better response!!!
     {
+        recordBuffer.close();
+        std::ifstream recordBufferRead{recordBufferName};
         isRecording = false;
         std::string line;
-        inputRecordFile << std::to_string(meanDelta) << '\n';
-        while (std::getline(inputRecordFileBuffer, line))
+        std::ofstream recordFile{inputRecordFileName};
+
+        recordFile << std::to_string(meanDelta) << '\n';
+
+        while (std::getline(recordBufferRead, line))
         {
-            inputRecordFile << line << '\n';
+            recordFile << line << '\n';
         }
-        inputRecordFile.close();
+        recordFile.close();
+        recordBuffer.close();
     }
 
     if (isRecording)
     {
         meanDelta = (meanDelta + delta.count()) / 2;
-        inputRecordFileBuffer << leInputHandler.getSnapshot() << '\n';
+        recordBuffer << leInputHandler.getSnapshot() << '\n';
     }
 }

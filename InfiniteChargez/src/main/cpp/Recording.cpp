@@ -29,7 +29,7 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
         recordingEnabled = false;
         meanDelta = delta.count();
     }
-    if (leInputHandler.getButtonBackState() && !isRecording) //Do not use elseif!!! If is for better response!!!
+    if (leInputHandler.getButtonBackState() && isRecording) //Do not use elseif!!! If is for better response!!!
     {
         recordBuffer.close();
         std::ifstream recordBufferRead{recordBufferName};

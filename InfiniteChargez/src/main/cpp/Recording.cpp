@@ -44,7 +44,7 @@ void Robot::recordActionsExec(utilities::XboxInputHandler &leInputHandler, durat
             recordFile << line << '\n';
         }
         recordFile.close();
-        recordBuffer.close();
+        recordBufferRead.close();
     }
 
     if (isRecording)
